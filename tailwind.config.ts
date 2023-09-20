@@ -9,10 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#f13b2f",
+        primary: "#0060AE",
         red: "#f42619",
         gray: "#c6c0c0",
-        "gray-1": "#ececec",
         "gray-shadow": "#d1d1d1",
         black: "#333130",
         green: "#52bd94",
