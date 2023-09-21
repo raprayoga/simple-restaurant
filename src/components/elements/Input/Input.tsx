@@ -2,7 +2,6 @@ import React, { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/utils/cn";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 const inputVariant = cva(
   "h-full w-full border rounded outline-0 py-2 placeholder:opacity-0 text-black px-2 pt-4 outline-none focus:shadow-sm",

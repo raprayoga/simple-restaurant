@@ -23,9 +23,6 @@ export const Default: Story = {
       <Toast {...args} onCLosed={action("onCLosed!")}>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quaerat
-          deleniti eveniet dolor hic dolores consequatur. Facilis impedit, quod,
-          accusantium dolor dolorem perferendis temporibus consequatur dolores
-          quis in consequuntur at.
         </p>
       </Toast>
     );
