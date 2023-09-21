@@ -1,5 +1,5 @@
-import { ToastSliceState } from "./toast";
+import { ToastSliceState } from './toast'
 
 export interface sliceState {
-  toast: ToastSliceState;
+  toast: ToastSliceState
 }

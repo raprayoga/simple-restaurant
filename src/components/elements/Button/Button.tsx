@@ -1,71 +1,71 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/utils";
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/utils'
 
 const buttonVariants = cva(
-  "px-5 py-2 flex items-center justify-center text-center lg:text-sm text-xs rounded cursor-pointer disabled:cursor-not-allowed transition-colors",
+  'px-5 py-2 flex items-center justify-center text-center lg:text-sm text-xs rounded cursor-pointer disabled:cursor-not-allowed transition-colors',
   {
     variants: {
       theme: {
-        primary: "bg-primary text-white hover:opacity-90",
-        green: "bg-green",
+        primary: 'bg-primary text-white hover:opacity-90',
+        green: 'bg-green',
       },
       variant: {
-        filled: "",
-        ghost: "",
+        filled: '',
+        ghost: '',
       },
       isDisabled: {
-        true: "",
-        false: "",
+        true: '',
+        false: '',
       },
     },
     defaultVariants: {
-      theme: "primary",
-      variant: "filled",
+      theme: 'primary',
+      variant: 'filled',
       isDisabled: false,
     },
     compoundVariants: [
       {
-        variant: "filled",
-        theme: "primary",
-        class: "bg-primary text-white hover:opacity-90",
+        variant: 'filled',
+        theme: 'primary',
+        class: 'bg-primary text-white hover:opacity-90',
       },
       {
-        variant: "ghost",
-        theme: "primary",
+        variant: 'ghost',
+        theme: 'primary',
         class:
-          "border border-primary text-primary bg-white hover:bg-primary hover:text-white",
+          'border border-primary text-primary bg-white hover:bg-primary hover:text-white',
       },
       {
-        variant: "filled",
-        theme: "green",
-        class: "bg-green text-white hover:opacity-90",
+        variant: 'filled',
+        theme: 'green',
+        class: 'bg-green text-white hover:opacity-90',
       },
       {
-        variant: "ghost",
-        theme: "green",
+        variant: 'ghost',
+        theme: 'green',
         class:
-          "border border-green text-green bg-white hover:bg-green hover:text-white",
+          'border border-green text-green bg-white hover:bg-green hover:text-white',
       },
       {
-        variant: "ghost",
+        variant: 'ghost',
         isDisabled: true,
-        class: "border border-gray text-gray cursor-not-allowed",
+        class: 'border border-gray text-gray cursor-not-allowed',
       },
       {
-        variant: "filled",
+        variant: 'filled',
         isDisabled: true,
-        class: "bg-gray text-white border-none cursor-not-allowed",
+        class: 'bg-gray text-white border-none cursor-not-allowed',
       },
     ],
   }
-);
+)
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  isDisabled?: boolean;
-  isLoading?: boolean;
+  isDisabled?: boolean
+  isLoading?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -78,10 +78,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         ref={ref}
         {...props}
+        data-testid="button-element"
       >
         {isLoading && (
           <svg
-            className="m-auto animate-spin inline align-middle w-4"
+            className="m-auto inline w-4 animate-spin align-middle"
             aria-hidden="true"
             role="status"
             viewBox="0 0 100 101"
@@ -100,9 +101,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {!isLoading && props.children}
       </button>
-    );
+    )
   }
-);
-Button.displayName = "Button";
+)
+Button.displayName = 'Button'
 
-export { Button, buttonVariants };
+export { Button, buttonVariants }

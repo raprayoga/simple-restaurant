@@ -1,11 +1,11 @@
-import React from "react";
-import { cn } from "@/utils";
-import { HTMLMotionProps, motion } from "framer-motion";
+import React from 'react'
+import { cn } from '@/utils'
+import { HTMLMotionProps, motion } from 'framer-motion'
 
-export interface DalogProps extends HTMLMotionProps<"div"> {
-  isShow: boolean;
-  className?: string;
-  onClose?: () => void;
+export interface DalogProps extends HTMLMotionProps<'div'> {
+  isShow: boolean
+  className?: string
+  onClose?: () => void
 }
 
 const Dialog = React.forwardRef<HTMLDivElement, DalogProps>(
@@ -19,20 +19,22 @@ const Dialog = React.forwardRef<HTMLDivElement, DalogProps>(
           ref={ref}
           className="fixed inset-0 z-50 bg-black"
           onClick={onClose}
+          data-testid="overlay-element"
         />
         <motion.div
           initial={{ scale: 0.5, x: '-50%', y: '-50%' }}
           animate={{ scale: 1, x: '-50%', y: '-50%' }}
           transition={{ duration: 0.1 }}
           className={cn(
-            "fixed bg-white left-[50%] top-[50%] z-50 max-w-full p-6 shadow-lg rounded-lg",
+            'fixed left-[50%] top-[50%] z-50 max-w-full rounded-lg bg-white p-6 shadow-lg',
             className
           )}
           {...props}
+          data-testid="body-dialog-element"
         />
       </>
     )
-);
-Dialog.displayName = "Dialog";
+)
+Dialog.displayName = 'Dialog'
 
-export { Dialog };
+export { Dialog }

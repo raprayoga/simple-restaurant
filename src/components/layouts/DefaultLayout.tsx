@@ -1,15 +1,13 @@
-import React from "react";
-import Header from "@/components/modules/Header";
+import React from 'react'
 
 export default function DefaultLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <>
-      <Header />
       <main className="mt-20 px-12">{children}</main>
     </>
-  );
+  )
 }
