@@ -1,10 +1,11 @@
 import React from "react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 import Card from "@/components/elements/Card";
 
-const toastVariant = cva("pr-8 fixed z-50 bottom-2 left-1/2 w-4/5 fade-top", {
+const toastVariant = cva("pr-8 left-1/2 translate-x-[-50%]", {
   variants: {
     theme: {
       danger: "bg-salmon text-primary",
@@ -19,7 +20,7 @@ const toastVariant = cva("pr-8 fixed z-50 bottom-2 left-1/2 w-4/5 fade-top", {
 
 export interface ToastProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof toastVariant> {
+  VariantProps<typeof toastVariant> {
   isShow: boolean;
   onCLosed?: () => void;
 }
@@ -33,13 +34,19 @@ function Toast({
 }: ToastProps) {
   return (
     isShow && (
-      <Card className={cn(toastVariant({ theme }), className)} {...props}>
-        {props.children}
-        <XMarkIcon
-          className="absolute top-1 right-2 w-5 cursor-pointer"
-          onClick={() => onCLosed()}
-        />
-      </Card>
+      <motion.div
+        className="fixed bottom-2 z-50"
+        initial={{ opacity: 0, y: '10%' }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}>
+        <Card className={cn(toastVariant({ theme }), className)} {...props}>
+          {props.children}
+          <XMarkIcon
+            className="absolute top-1 right-2 w-5 cursor-pointer"
+            onClick={() => onCLosed()}
+          />
+        </Card>
+      </motion.div>
     )
   );
 }
