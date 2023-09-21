@@ -39,7 +39,6 @@ function Toast({
         initial={{ opacity: 0, y: '10%' }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        data-testid="toast-element"
       >
         <Card
           className={cn(toastVariant({ theme }), className)}
@@ -48,7 +47,7 @@ function Toast({
         >
           {props.children}
           <XMarkIcon
-            className="absolute top-1 right-2 w-5 cursor-pointer"
+            className="absolute right-2 top-1 w-5 cursor-pointer"
             onClick={() => onCLosed()}
           />
         </Card>
