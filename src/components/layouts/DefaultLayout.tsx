@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "@/components/modules/Header";
 
 export default function DefaultLayout({
   children,
@@ -8,7 +7,6 @@ export default function DefaultLayout({
 }) {
   return (
     <>
-      <Header />
       <main className="mt-20 px-12">{children}</main>
     </>
   );

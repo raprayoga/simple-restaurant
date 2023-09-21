@@ -5,9 +5,9 @@ import Input from "./index";
 const placeholder = "input name";
 const inputText = "inputed text";
 
-const variants: { variant: "default" | "danger"; style: string }[] = [
-  { variant: "default", style: "border-gray focus:shadow-primary" },
-  { variant: "danger", style: "border-red focus:shadow-red" },
+const variants: { theme: "default" | "danger"; style: string }[] = [
+  { theme: "default", style: "border-gray focus:shadow-primary" },
+  { theme: "danger", style: "border-red focus:shadow-red" },
 ];
 
 const setup = (props: React.ComponentProps<typeof Input>) => {
@@ -19,14 +19,11 @@ const setup = (props: React.ComponentProps<typeof Input>) => {
 };
 
 describe("Input test", () => {
-  test.each(variants)(
-    "Should render variant correctly",
-    ({ variant, style }) => {
-      const { inputElement } = setup({ placeholder, variant });
+  test.each(variants)("Should render variant correctly", ({ theme, style }) => {
+    const { inputElement } = setup({ placeholder, theme });
 
-      expect(inputElement).toHaveClass(style);
-    }
-  );
+    expect(inputElement).toHaveClass(style);
+  });
 
   test("sould handle input user", () => {
     const { inputElement } = setup({});

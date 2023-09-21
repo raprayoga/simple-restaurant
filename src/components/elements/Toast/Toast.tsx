@@ -1,33 +1,33 @@
-import React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/utils";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
-import Card from "@/components/elements/Card";
+import React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/utils'
+import { motion } from 'framer-motion'
+import Card from '@/components/elements/Card'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
-const toastVariant = cva("pr-8 left-1/2 translate-x-[-50%]", {
+const toastVariant = cva('pr-8 left-1/2 translate-x-[-50%]', {
   variants: {
     theme: {
-      danger: "bg-salmon text-primary",
-      green: "bg-green text-white",
-      white: "bg-white border border-gray text-gray",
+      danger: 'bg-salmon text-primary',
+      green: 'bg-green text-white',
+      white: 'bg-white border border-gray text-gray',
     },
   },
   defaultVariants: {
-    theme: "danger",
+    theme: 'danger',
   },
-});
+})
 
 export interface ToastProps
   extends React.HTMLAttributes<HTMLDivElement>,
-  VariantProps<typeof toastVariant> {
-  isShow: boolean;
-  onCLosed?: () => void;
+    VariantProps<typeof toastVariant> {
+  isShow: boolean
+  onCLosed?: () => void
 }
 
 function Toast({
   className,
-  theme = "danger",
+  theme = 'danger',
   isShow = false,
   onCLosed = () => null,
   ...props
@@ -38,8 +38,14 @@ function Toast({
         className="fixed bottom-2 z-50"
         initial={{ opacity: 0, y: '10%' }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}>
-        <Card className={cn(toastVariant({ theme }), className)} {...props}>
+        transition={{ duration: 0.3 }}
+        data-testid="toast-element"
+      >
+        <Card
+          className={cn(toastVariant({ theme }), className)}
+          {...props}
+          data-testid="toast-element"
+        >
           {props.children}
           <XMarkIcon
             className="absolute top-1 right-2 w-5 cursor-pointer"
@@ -48,7 +54,7 @@ function Toast({
         </Card>
       </motion.div>
     )
-  );
+  )
 }
 
-export { Toast };
+export { Toast }

@@ -19,7 +19,7 @@ const StoryComponent = ({ variant }: { variant?: "default" | "danger" }) => {
       placeholder="Name"
       value={value}
       onChange={(e) => handleOnChange(e)}
-      variant={variant}
+      theme={variant}
     />
   );
 };
