@@ -1,22 +1,22 @@
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import Card from "./index";
+import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import Card from './index'
 
-const variants: { variant: "primary" | "white" | "green"; style: string }[] = [
-  { variant: "primary", style: "bg-primary" },
-  { variant: "primary", style: "bg-white border border-gray" },
-  { variant: "green", style: "border border-green shadow shadow-green" },
-];
+const variants: { theme: 'primary' | 'white' | 'green'; style: string }[] = [
+  { theme: 'primary', style: 'bg-primary' },
+  { theme: 'primary', style: 'bg-white border border-gray' },
+  { theme: 'green', style: 'border border-green shadow shadow-green' },
+]
 
-describe("Card correctly", () => {
-  test.each(variants)("sould render card correctly ", ({ variant, style }) => {
+describe('Card correctly', () => {
+  test.each(variants)('sould render card correctly ', ({ theme, style }) => {
     render(
-      <Card className={style} theme={variant}>
+      <Card className={style} theme={theme}>
         Card
       </Card>
-    );
+    )
 
-    const cardElement = screen.getByTestId("card-element");
-    expect(cardElement).toHaveClass(style);
-  });
-});
+    const cardElement = screen.getByTestId('card-element')
+    expect(cardElement).toHaveClass(style)
+  })
+})

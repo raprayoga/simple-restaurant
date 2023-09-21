@@ -26,7 +26,7 @@ const Dialog = React.forwardRef<HTMLDivElement, DalogProps>(
           animate={{ scale: 1, x: '-50%', y: '-50%' }}
           transition={{ duration: 0.1 }}
           className={cn(
-            'fixed bg-white left-[50%] top-[50%] z-50 max-w-full p-6 shadow-lg rounded-lg',
+            'fixed left-[50%] top-[50%] z-50 max-w-full rounded-lg bg-white p-6 shadow-lg',
             className
           )}
           {...props}

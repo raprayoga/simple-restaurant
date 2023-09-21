@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const [onFocus, setOnFocus] = useState<boolean>(false)
 
     return (
-      <div className="relative w-full h-full">
+      <div className="relative h-full w-full">
         <input
           className={cn(inputVariant({ theme }), className)}
           data-testid="input-element"
@@ -52,7 +52,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <motion.span
           animate={onFocus || value ? 'open' : 'closed'}
           variants={variants}
-          className="absolute text-gray left-3 top-1/2 mt-auto fond-medium leading-none"
+          className="fond-medium absolute left-3 top-1/2 mt-auto leading-none text-gray"
         >
           {placeholder}
         </motion.span>
