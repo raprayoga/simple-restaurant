@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Card from '@/components/elements/Card'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
-const toastVariant = cva('pr-8 left-1/2 translate-x-[-50%]', {
+const toastVariant = cva('pr-8 translate-x-[-50%]', {
   variants: {
     theme: {
       danger: 'bg-salmon text-primary',
@@ -35,7 +35,7 @@ function Toast({
   return (
     isShow && (
       <motion.div
-        className="fixed bottom-2 z-50"
+        className="fixed bottom-2 left-1/2 z-50"
         initial={{ opacity: 0, y: '10%' }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
