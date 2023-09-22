@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { sliceState } from '@/interface/state'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteItem, getMenu } from '@/store/menu'
+import { deleteItem } from '@/store/menu'
 import { Dispatch } from '@reduxjs/toolkit'
 import Button from '@/components/elements/Button'
 import { showToast } from '@/store/toast'
-import { CheckIcon } from '@heroicons/react/24/outline'
+import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import Dialog from '@/components/elements/Dialog'
 
 const MenuList = React.forwardRef<
@@ -16,10 +16,6 @@ const MenuList = React.forwardRef<
   const menu = useSelector((state: sliceState) => state.menu.data)
   const [isShowDialog, setIsShowDialog] = useState(false)
   const [idDelete, setIdDelete] = useState(0)
-
-  useEffect(() => {
-    dispatch(getMenu())
-  }, [dispatch])
 
   const handleDeleteItem = () => {
     dispatch(deleteItem({ id: idDelete }))
@@ -44,10 +40,9 @@ const MenuList = React.forwardRef<
 
   return (
     <>
-      {idDelete}
       <div className="relative overflow-x-auto" {...props} ref={ref}>
         <table className="w-full text-left text-sm">
-          <thead className="bg-gray-shadow text-xs  uppercase">
+          <thead className="bg-gray-shadow text-xs">
             <tr>
               <th scope="col" className="px-6 py-3">
                 ID
@@ -64,27 +59,33 @@ const MenuList = React.forwardRef<
             </tr>
           </thead>
           <tbody>
-            {menu.map((item) => (
-              <tr className="border-b bg-white" key={item.id}>
-                <td scope="row" className="whitespace-nowrap px-6 py-4">
-                  {item.id}
-                </td>
-                <td className="px-6 py-4">{item.menu}</td>
-                <td className="px-6 py-4">
-                  {'Rp ' + new Intl.NumberFormat('id-ID').format(+item.price)}
-                </td>
-                <td className="px-6 py-4">
-                  <Button
-                    theme="red"
-                    variant="ghost"
-                    className="px-3 py-1"
-                    onClick={() => handleConfirmDelete(item.id)}
-                  >
-                    Delete
-                  </Button>
-                </td>
+            {menu.length === 0 && (
+              <tr className="text-center">
+                <td colSpan={4}>Menu belum tersedia</td>
               </tr>
-            ))}
+            )}
+            {menu.length > 0 &&
+              menu.map((item) => (
+                <tr className="border-b bg-white" key={item.id}>
+                  <td scope="row" className="whitespace-nowrap px-6 py-4">
+                    {item.id}
+                  </td>
+                  <td className="px-6 py-4">{item.menu}</td>
+                  <td className="px-6 py-4">
+                    {'Rp ' + new Intl.NumberFormat('id-ID').format(+item.price)}
+                  </td>
+                  <td className="px-6 py-4">
+                    <Button
+                      theme="red"
+                      variant="ghost"
+                      className="px-3 py-1"
+                      onClick={() => handleConfirmDelete(item.id)}
+                    >
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
@@ -94,8 +95,8 @@ const MenuList = React.forwardRef<
         className="flex w-[280px] flex-col items-center"
         onClose={() => toggleShowDialog(false)}
       >
-        <div className="mb-5 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-green">
-          <CheckIcon className="w-[30px] stroke-2 text-white" />
+        <div className="mb-5 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-red">
+          <ExclamationCircleIcon className="w-[30px] stroke-2 text-white" />
         </div>
         <p className="text-sm">Yakin menghapus item menu ini ?</p>
         <p

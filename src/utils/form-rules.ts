@@ -5,7 +5,7 @@ export const formRules = {
   },
   minNominal: (number: number) => ({
     value: number,
-    message: 'Harus lebih besar dari ' + (number - 1),
+    message: 'Minimal ' + (number - 1),
   }),
   maxLength: (number: number) => ({
     value: number,
