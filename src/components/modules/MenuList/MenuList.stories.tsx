@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react'
-import AddMenuForm from './index'
+import MenuList from './index'
 import store from '@/store/store'
 import { Provider } from 'react-redux'
 
-const meta: Meta<typeof AddMenuForm> = {
-  component: AddMenuForm,
+const meta: Meta<typeof MenuList> = {
+  component: MenuList,
   args: {
     className: 'w-[500px] text-green',
   },
@@ -16,7 +16,7 @@ export default meta
 export const Default = () => {
   return (
     <Provider store={store}>
-      <AddMenuForm className="w-full" />
+      <MenuList className="w-full" />
     </Provider>
   )
 }

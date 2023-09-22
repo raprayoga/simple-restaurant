@@ -24,7 +24,6 @@ const AddMenuForm = React.forwardRef<
   })
 
   const onSubmit: SubmitHandler<MenuForm> = (data) => {
-    console.log(data.menu)
     dispatch(addMenu(data))
     reset()
     dispatch(
