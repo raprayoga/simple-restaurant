@@ -17,6 +17,9 @@ const config: Config = {
         green: '#52bd94',
         salmon: '#fff5f3',
       },
+      gridTemplateColumns: {
+        'fill-16': 'repeat(auto-fill, minmax(12rem, 1fr))',
+      },
     },
   },
   plugins: [],
