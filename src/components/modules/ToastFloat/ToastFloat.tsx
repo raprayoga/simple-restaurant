@@ -13,7 +13,7 @@ export default function ToastFloat() {
     if (toast.isShow) {
       setTimeout(() => {
         dispatch(hideToast())
-      }, 30000)
+      }, 3000)
     }
   }, [dispatch, toast.isShow])
 

@@ -5,7 +5,7 @@ import { cn } from '@/utils'
 const cardVariants = cva('rounded-lg', {
   variants: {
     theme: {
-      primary: 'bg-primary',
+      primary: 'bg-primary text-white',
       white: 'bg-white border border-gray',
       green: 'border border-green shadow shadow-green',
     },
