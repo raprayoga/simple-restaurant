@@ -29,16 +29,8 @@ const Sidebar = React.forwardRef<
             router.pathname === '/' ? 'text-white' : 'text-gray'
           }`}
         >
-          <BanknotesIcon className="mr-2 w-4" />
-          <Link href="/">Order</Link>
-        </li>
-        <li
-          className={`mx-2.5 my-2 flex ${
-            router.pathname === '/kitchen' ? 'text-white' : 'text-gray'
-          }`}
-        >
           <TableCellsIcon className="mr-2 w-4" />
-          <Link href="/kitchen">Dapur</Link>
+          <Link href="/">Dapur</Link>
         </li>
         <li
           className={`mx-2.5 my-2 flex ${
