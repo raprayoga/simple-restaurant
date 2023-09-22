@@ -56,7 +56,7 @@ const OrderList = React.forwardRef<HTMLTableCaptionElement, OrderListProps>(
             <thead className="bg-gray-shadow text-xs">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Nama
+                  Menu
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Kuantitas

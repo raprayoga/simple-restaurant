@@ -10,16 +10,13 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const orders: any[] = getItemFromLocalStorage('orders')
     const menu: any[] = getItemFromLocalStorage('menu')
-    console.log(orders)
-    console.log(menu)
+
     if (menu === null) {
       localStorage.setItem('menu', JSON.stringify([]))
     }
     if (orders === null) {
       localStorage.setItem('orders', JSON.stringify([[], [], [], [], [], []]))
     }
-
-    console.log('USE EFFECT')
   }, [])
 
   return (

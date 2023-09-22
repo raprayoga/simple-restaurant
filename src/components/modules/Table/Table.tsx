@@ -11,7 +11,7 @@ interface TableProps
 const Table = React.forwardRef<HTMLTableCaptionElement, TableProps>(
   ({ table, setTable, ...props }, ref) => {
     return (
-      <div className="grid grid-cols-fill-16 gap-5" {...props} ref={ref}>
+      <div className="grid grid-cols-fill-12 gap-5" {...props} ref={ref}>
         {tables.map((tableNum, index) => (
           <Card
             key={tableNum}
