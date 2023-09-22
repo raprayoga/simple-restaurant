@@ -16,7 +16,7 @@ export default meta
 export const Default = () => {
   return (
     <Provider store={store}>
-      <AddOrderForm className="w-full" />
+      <AddOrderForm className="w-full" table={0} />
     </Provider>
   )
 }
