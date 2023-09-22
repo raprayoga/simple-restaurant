@@ -38,7 +38,8 @@ const Sidebar = React.forwardRef<
         ref={ref}
       >
         <h2 className="mx-2.5 my-5 text-2xl font-bold text-white">
-          Restaurant
+          <span className="block text-sm">Management</span>
+          Restoran
         </h2>
         <ul>
           <li

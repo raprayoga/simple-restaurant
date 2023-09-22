@@ -1,6 +1,6 @@
 import React from 'react'
-import DefaultLayout from '../layouts/DefaultLayout'
-import OrdersTable from '../modules/OrdersTable'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
+import OrdersTable from '@/components/modules/OrdersTable'
 
 export default function Kitchen() {
   return (
