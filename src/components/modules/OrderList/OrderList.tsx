@@ -8,12 +8,11 @@ import { Dispatch } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateOrder } from '@/store/order'
 
-export interface OrderListProps
-  extends React.HTMLAttributes<HTMLTableCaptionElement> {
+export interface OrderListProps extends React.HTMLAttributes<HTMLDivElement> {
   table: number
 }
 
-const OrderList = React.forwardRef<HTMLTableCaptionElement, OrderListProps>(
+const OrderList = React.forwardRef<HTMLDivElement, OrderListProps>(
   ({ table, ...props }, ref) => {
     const dispatch: Dispatch<any> = useDispatch()
     const orders = useSelector((state: sliceState) => state.order.data)
