@@ -7,6 +7,7 @@ import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { resetTableOrders } from '@/store/order'
 import { Dispatch } from '@reduxjs/toolkit'
 import { showToast } from '@/store/toast'
+import { Margin, usePDF } from 'react-to-pdf'
 
 export interface CashierOrderListProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,6 +21,10 @@ const CashierOrderList = React.forwardRef<
   const dispatch: Dispatch<any> = useDispatch()
   const orders = useSelector((state: sliceState) => state.order.data)
   const [isShowDialog, setIsShowDialog] = useState(false)
+  const { toPDF, targetRef } = usePDF({
+    filename: `struk_meja_${table + 1}.pdf`,
+    page: { margin: Margin.MEDIUM },
+  })
 
   const totalPrice = orders[table].reduce(
     (total, order) => total + order.price * +order.quantity,
@@ -41,11 +46,24 @@ const CashierOrderList = React.forwardRef<
     setIsShowDialog(value)
   }
 
+  const handlePrintStroke = () => {
+    toPDF()
+
+    dispatch(
+      showToast({
+        message: 'Cetak Struk diproses, silahkan cek file download',
+        type: 'green',
+      })
+    )
+  }
+
   return (
     <>
       <div className="relative overflow-x-auto" {...props} ref={ref}>
         <div className="mb-3 flex gap-2">
-          <Button theme="green">Cetak Struk</Button>
+          <Button theme="green" onClick={handlePrintStroke}>
+            Cetak Struk
+          </Button>
           <Button
             variant="ghost"
             theme="red"
@@ -54,7 +72,7 @@ const CashierOrderList = React.forwardRef<
             Kosongkan Meja
           </Button>
         </div>
-        <table className="w-full text-left text-sm">
+        <table className="w-full text-left text-sm" ref={targetRef}>
           <thead className="bg-gray-shadow text-xs">
             <tr>
               <th scope="col" className="px-6 py-3">
