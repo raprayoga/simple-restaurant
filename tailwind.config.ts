@@ -18,7 +18,8 @@ const config: Config = {
         salmon: '#fff5f3',
       },
       gridTemplateColumns: {
-        'fill-16': 'repeat(auto-fill, minmax(12rem, 1fr))',
+        'fill-12': 'repeat(auto-fill, minmax(12rem, 1fr))',
+        'fill-16': 'repeat(auto-fill, minmax(16rem, 1fr))',
       },
     },
   },
