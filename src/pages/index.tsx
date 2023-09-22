@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Kitchen from '@/components/templates/Kitchen'
+import Order from '@/components/templates/Order'
 import { Dispatch } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { getOrder } from '@/store/order'
 import { getMenu } from '@/store/menu'
 
-export default function KitchenPage() {
+export default function OrderPage() {
   const dispatch: Dispatch<any> = useDispatch()
   const [table, setTable] = useState(0)
 
@@ -18,5 +18,5 @@ export default function KitchenPage() {
     dispatch(getMenu())
   }, [dispatch])
 
-  return <Kitchen table={table} setTable={handleCHangeTable} />
+  return <Order table={table} setTable={handleCHangeTable} />
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from '@/components/elements/Card'
-import { KitchenProps } from '@/components/templates/Kitchen'
+import { OrderProps } from '@/components/templates/Order'
 
 const tables = [1, 2, 3, 4, 5, 6]
 
 interface TableProps
   extends React.HTMLAttributes<HTMLTableCaptionElement>,
-    KitchenProps {}
+    OrderProps {}
 
 const Table = React.forwardRef<HTMLTableCaptionElement, TableProps>(
   ({ table, setTable, ...props }, ref) => {

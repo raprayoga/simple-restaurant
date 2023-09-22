@@ -117,7 +117,7 @@ const AddOrderForm = React.forwardRef<HTMLFormElement, AddOrderFormProps>(
                     <div className="flex w-4/12 flex-col">
                       <Input
                         type="number"
-                        placeholder="Kuantitas"
+                        placeholder="Qt"
                         value={value}
                         onBlur={onBlur}
                         onChange={onChange}
