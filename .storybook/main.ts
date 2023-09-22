@@ -1,33 +1,33 @@
-const path = require("path");
-import type { StorybookConfig } from "@storybook/nextjs";
+const path = require('path')
+import type { StorybookConfig } from '@storybook/nextjs'
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
     {
-      name: "@storybook/addon-styling",
+      name: '@storybook/addon-styling',
       options: {},
     },
   ],
   framework: {
-    name: "@storybook/nextjs",
+    name: '@storybook/nextjs',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
   webpackFinal: async (config, { configType }) => {
-    config.resolve.modules = [path.resolve(__dirname, ".."), "node_modules"];
+    config.resolve.modules = [path.resolve(__dirname, '..'), 'node_modules']
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@": path.resolve(__dirname, "../src"),
-    };
+      '@': path.resolve(__dirname, '../src'),
+    }
 
-    return config;
+    return config
   },
-};
-export default config;
+}
+export default config

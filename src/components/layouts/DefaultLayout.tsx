@@ -1,15 +1,15 @@
-import React from "react";
-import Header from "@/components/modules/Header";
+import React from 'react'
+import Sidebar from '@/components/modules/Sidebar'
 
 export default function DefaultLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <>
-      <Header />
-      <main className="mt-20 px-12">{children}</main>
-    </>
-  );
+    <div className="flex">
+      <Sidebar />
+      <main className="mt-5 min-h-screen w-full px-12">{children}</main>
+    </div>
+  )
 }
