@@ -9,6 +9,7 @@ const buttonVariants = cva(
       theme: {
         primary: 'bg-primary text-white hover:opacity-90',
         green: 'bg-green',
+        red: 'bg-red',
       },
       variant: {
         filled: '',
@@ -46,6 +47,17 @@ const buttonVariants = cva(
         theme: 'green',
         class:
           'border border-green text-green bg-white hover:bg-green hover:text-white',
+      },
+      {
+        variant: 'filled',
+        theme: 'red',
+        class: 'bg-red text-white hover:opacity-90',
+      },
+      {
+        variant: 'ghost',
+        theme: 'red',
+        class:
+          'border border-red text-red bg-white hover:bg-red hover:text-white',
       },
       {
         variant: 'ghost',

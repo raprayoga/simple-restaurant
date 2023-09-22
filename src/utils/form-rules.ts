@@ -5,13 +5,17 @@ export const formRules = {
   },
   minNominal: (number: number) => ({
     value: number,
-    message: 'Harus lebih besar dari ' + number,
+    message: 'Harus lebih besar dari ' + (number - 1),
+  }),
+  maxLength: (number: number) => ({
+    value: number,
+    message: 'Panjang karakter tidak lebih besar dari ' + number + ' karakter',
   }),
 }
 
 export function getVariant(dirty: boolean, error: boolean) {
   if (error) {
-    return 'primary'
+    return 'danger'
   }
-  return !dirty ? 'default' : 'green'
+  return 'default'
 }

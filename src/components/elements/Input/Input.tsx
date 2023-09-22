@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const [onFocus, setOnFocus] = useState<boolean>(false)
 
     return (
-      <div className="relative h-full w-full">
+      <div className="relative w-full">
         <input
           className={cn(inputVariant({ theme }), className)}
           data-testid="input-element"

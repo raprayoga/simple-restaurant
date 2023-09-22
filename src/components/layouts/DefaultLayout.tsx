@@ -1,4 +1,5 @@
 import React from 'react'
+import Sidebar from '@/components/modules/Sidebar'
 
 export default function DefaultLayout({
   children,
@@ -6,8 +7,9 @@ export default function DefaultLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <main className="mt-20 px-12">{children}</main>
-    </>
+    <div className="flex">
+      <Sidebar />
+      <main className="mt-5 min-h-screen w-full px-12">{children}</main>
+    </div>
   )
 }
