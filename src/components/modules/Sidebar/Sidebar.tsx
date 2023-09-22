@@ -13,6 +13,11 @@ import {
 } from '@heroicons/react/24/outline'
 import Dialog from '@/components/elements/Dialog'
 import Button from '@/components/elements/Button'
+import { Dispatch } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
+import { getOrder } from '@/store/order'
+import { getMenu } from '@/store/menu'
+import { showToast } from '@/store/toast'
 
 const Sidebar = React.forwardRef<
   HTMLDivElement,
@@ -20,10 +25,21 @@ const Sidebar = React.forwardRef<
 >(({ ...props }, ref) => {
   const router = useRouter()
   const [isShowDialog, setIsShowDialog] = useState(false)
+  const dispatch: Dispatch<any> = useDispatch()
 
   const handleReset = () => {
     localStorage.setItem('menu', JSON.stringify([]))
     localStorage.setItem('orders', JSON.stringify([[], [], [], [], [], []]))
+
+    dispatch(getMenu())
+    dispatch(getOrder())
+    toggleShowDialog(false)
+    dispatch(
+      showToast({
+        message: 'Berhasil reset data',
+        type: 'green',
+      })
+    )
   }
 
   const toggleShowDialog = (value: boolean) => {
@@ -38,7 +54,8 @@ const Sidebar = React.forwardRef<
         ref={ref}
       >
         <h2 className="mx-2.5 my-5 text-2xl font-bold text-white">
-          Restaurant
+          <span className="block text-sm">Management</span>
+          Restoran
         </h2>
         <ul>
           <li

@@ -25,6 +25,7 @@ export const orderSlice = createSlice({
       let orders: Order[][] = getItemFromLocalStorage('orders')
       orders[action.payload.table] = []
 
+      localStorage.setItem('orders', JSON.stringify(orders))
       state.data = orders
     },
   },
