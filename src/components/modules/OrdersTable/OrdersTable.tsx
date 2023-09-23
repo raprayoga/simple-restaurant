@@ -15,7 +15,10 @@ const OrdersTable = React.forwardRef<
           <h3 className="text-lg font-semibold text-primary">
             Meja: {indexTable + 1}
           </h3>
-          <table className="w-full border border-gray-shadow text-left text-sm">
+          <table
+            className="w-full border border-gray-shadow text-left text-sm"
+            data-testid="table-element"
+          >
             <thead className="bg-gray-shadow text-xs">
               <tr>
                 <th scope="col" className="px-6 py-3">
