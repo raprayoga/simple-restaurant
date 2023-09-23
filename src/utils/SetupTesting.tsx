@@ -13,29 +13,9 @@ localStorage.setItem(
   'menu',
   JSON.stringify([
     {
-      menu: 'sda',
-      price: '2',
-      id: 125570837,
-    },
-    {
       menu: 'nasi uduk',
       price: '7000',
       id: 67324360,
-    },
-    {
-      menu: 'bebek gorengan',
-      price: '17000',
-      id: 56256792,
-    },
-    {
-      menu: 'es teh manis',
-      price: '4000',
-      id: 56238262,
-    },
-    {
-      menu: 'nasi goreng',
-      price: '23000',
-      id: 56229478,
     },
   ])
 )
@@ -49,24 +29,6 @@ localStorage.setItem(
         id: 67324360,
         quantity: '2',
       },
-      {
-        menu: 'es teh manis',
-        price: '4000',
-        id: 56238262,
-        quantity: '2',
-      },
-      {
-        menu: 'bebek gorengan',
-        price: '17000',
-        id: 56256792,
-        quantity: '2',
-      },
-      {
-        menu: 'sda',
-        price: '2',
-        id: 125570837,
-        quantity: '3',
-      },
     ],
     [],
     [],
@@ -84,12 +46,6 @@ localStorage.setItem(
         menu: 'nasi uduk',
         price: '7000',
         id: 67324360,
-        quantity: '2',
-      },
-      {
-        menu: 'nasi goreng',
-        price: '23000',
-        id: 56229478,
         quantity: '2',
       },
     ],

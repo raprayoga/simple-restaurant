@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CashierOrderList from './index'
 import { renderWithProviders } from '@/utils/SetupTesting'
-HTMLCanvasElement.prototype.getContext = jest.fn()
+
 const setup = () => {
   renderWithProviders(<CashierOrderList table={0} />)
 
