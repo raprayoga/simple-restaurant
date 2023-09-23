@@ -37,7 +37,7 @@ describe('AddOrderForm test', () => {
     expect(screen.getAllByText(formRules.required.message)).toHaveLength(1)
   })
 
-  test('Should launch dialog when successfuly submit', async () => {
+  test('Should launch dialog when submit', async () => {
     const user = userEvent.setup()
     const { inputElement, selectElement, submitElement } = setup()
 

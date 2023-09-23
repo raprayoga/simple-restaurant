@@ -4,7 +4,7 @@ import OrdersTable from './index'
 import { renderWithProviders } from '@/utils/SetupTesting'
 
 describe('OrdersTable test', () => {
-  test('Should launch dialog when reset', async () => {
+  test('Should render all table', async () => {
     renderWithProviders(<OrdersTable />)
 
     expect(screen.getAllByTestId('table-element')).toHaveLength(6)
