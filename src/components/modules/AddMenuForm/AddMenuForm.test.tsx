@@ -1,23 +1,18 @@
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import AddMenuForm from './index'
 import { formRules } from '@/utils/form-rules'
-import { Provider } from 'react-redux'
-import store from '@/store/store'
+import { renderWithProviders } from '@/utils/SetupTesting'
 
 const setup = () => {
-  const utils = render(
-    <Provider store={store}>
-      <AddMenuForm data-testid="form-element" />
-    </Provider>
-  )
+  renderWithProviders(<AddMenuForm data-testid="form-element" />)
 
   const menuInputElement = screen.getByPlaceholderText('Menu')
   const priceInputElement = screen.getByPlaceholderText('Harga')
   const submitElement = screen.getByTestId('button-element')
 
-  return { ...utils, menuInputElement, priceInputElement, submitElement }
+  return { menuInputElement, priceInputElement, submitElement }
 }
 
 const textTest = 'abc'

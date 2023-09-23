@@ -1,17 +1,12 @@
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import AddOrderForm from './index'
 import { formRules } from '@/utils/form-rules'
-import { Provider } from 'react-redux'
-import store from '@/store/store'
+import { renderWithProviders } from '@/utils/SetupTesting'
 
 const setup = () => {
-  const utils = render(
-    <Provider store={store}>
-      <AddOrderForm data-testid="form-element" table={0} />
-    </Provider>
-  )
+  renderWithProviders(<AddOrderForm data-testid="form-element" table={0} />)
 
   const inputElement = screen.getByTestId('input-element')
   const selectElement = screen.getByTestId('select-element')
@@ -22,7 +17,7 @@ const setup = () => {
   customOption.setAttribute('value', 'Water')
   selectElement.appendChild(customOption)
 
-  return { ...utils, inputElement, selectElement, submitElement }
+  return { inputElement, selectElement, submitElement }
 }
 
 const nominalTest = '123'
