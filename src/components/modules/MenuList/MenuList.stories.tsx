@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
 import type { Meta } from '@storybook/react'
 import MenuList from './index'
 import store from '@/store/store'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
+import { Dispatch } from '@reduxjs/toolkit'
+import { getMenu } from '@/store/menu'
 
 const meta: Meta<typeof MenuList> = {
   component: MenuList,
@@ -13,10 +16,20 @@ const meta: Meta<typeof MenuList> = {
 
 export default meta
 
+function Component() {
+  const dispatch: Dispatch<any> = useDispatch()
+
+  useEffect(() => {
+    dispatch(getMenu())
+  }, [dispatch])
+
+  return <MenuList className="w-full" />
+}
+
 export const Default = () => {
   return (
     <Provider store={store}>
-      <MenuList className="w-full" />
+      <Component />
     </Provider>
   )
 }

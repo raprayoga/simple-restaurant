@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
 import type { Meta } from '@storybook/react'
 import AddOrderForm from './index'
 import store from '@/store/store'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
+import { Dispatch } from '@reduxjs/toolkit'
+import { getMenu } from '@/store/menu'
 
 const meta: Meta<typeof AddOrderForm> = {
   component: AddOrderForm,
@@ -13,10 +16,20 @@ const meta: Meta<typeof AddOrderForm> = {
 
 export default meta
 
+function Component() {
+  const dispatch: Dispatch<any> = useDispatch()
+
+  useEffect(() => {
+    dispatch(getMenu())
+  }, [dispatch])
+
+  return <AddOrderForm table={0} className="w-full" />
+}
+
 export const Default = () => {
   return (
     <Provider store={store}>
-      <AddOrderForm className="w-full" table={0} />
+      <Component />
     </Provider>
   )
 }

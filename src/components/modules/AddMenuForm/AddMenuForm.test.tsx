@@ -13,7 +13,11 @@ const setup = () => {
     </Provider>
   )
 
-  return { ...utils }
+  const menuInputElement = screen.getByPlaceholderText('Menu')
+  const priceInputElement = screen.getByPlaceholderText('Harga')
+  const submitElement = screen.getByTestId('button-element')
+
+  return { ...utils, menuInputElement, priceInputElement, submitElement }
 }
 
 const textTest = 'abc'
@@ -22,17 +26,15 @@ const nominalTest = '123'
 describe('AddMenuForm test', () => {
   test('Should render error feedback when field empty', async () => {
     const user = userEvent.setup()
-    setup()
+    const { menuInputElement, priceInputElement, submitElement } = setup()
 
-    await user.click(screen.getByTestId('button-element'))
+    await user.click(submitElement)
     expect(screen.getAllByText(formRules.required.message)).toHaveLength(2)
 
-    const menuInput = screen.getByPlaceholderText('Menu')
-    const priceInput = screen.getByPlaceholderText('Harga')
-    await user.type(menuInput, textTest)
-    await user.clear(menuInput)
-    await user.type(priceInput, nominalTest)
-    await user.clear(priceInput)
+    await user.type(menuInputElement, textTest)
+    await user.clear(menuInputElement)
+    await user.type(priceInputElement, nominalTest)
+    await user.clear(priceInputElement)
     expect(screen.getAllByText(formRules.required.message)).toHaveLength(2)
   })
 
@@ -48,16 +50,14 @@ describe('AddMenuForm test', () => {
 
   test('Should reset when successfuly submit', async () => {
     const user = userEvent.setup()
-    setup()
+    const { menuInputElement, priceInputElement, submitElement } = setup()
 
-    const menuInput = screen.getByPlaceholderText('Menu')
-    const priceInput = screen.getByPlaceholderText('Harga')
-    await user.type(menuInput, textTest)
-    await user.type(priceInput, nominalTest)
+    await user.type(menuInputElement, textTest)
+    await user.type(priceInputElement, nominalTest)
 
-    await user.click(screen.getByTestId('button-element'))
+    await user.click(submitElement)
 
-    expect(menuInput).not.toHaveValue(textTest)
-    expect(priceInput).not.toHaveValue(nominalTest)
+    expect(menuInputElement).not.toHaveValue(textTest)
+    expect(priceInputElement).not.toHaveValue(nominalTest)
   })
 })
