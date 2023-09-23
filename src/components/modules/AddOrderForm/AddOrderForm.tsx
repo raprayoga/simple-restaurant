@@ -153,6 +153,7 @@ const AddOrderForm = React.forwardRef<HTMLFormElement, AddOrderFormProps>(
           <p
             className="my-6 cursor-pointer text-sm font-bold text-primary"
             onClick={handleSubmit(onSubmit)}
+            data-testid="confirm-element"
           >
             Ya, Lanjutkan
           </p>
