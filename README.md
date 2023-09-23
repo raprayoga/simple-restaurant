@@ -54,7 +54,7 @@ This is major frameworks/libraries used to bootstrap the project.
 - [![TailwindCSS][TailwindCSS.js]][TailwindCSS-url]
 - [![TypeScript][TypeScript.js]][TypeScript-url]
 - [![Jest][Jest.js]][Jest-url]
-- [![Testing-Librays][Testing-Librays.js]][Testing-Librays-url]
+- [![Testing-Library][Testing-Library.js]][Testing-Library-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,5 +137,5 @@ Rafie Achmad Prayoga - [Linkedin](https://www.linkedin.com/in/rafie-achmad-prayo
 [TypeScript-url]: https://www.typescriptlang.org/
 [Jest.js]: https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white
 [Jest-url]: https://jestjs.io/
-[Testing-Libray.js]: https://img.shields.io/badge/testing%20library-323330?style=for-the-badge&logo=testing-library&logoColor=red
-[Testing-Libray-url]: https://testing-library.com/docs/react-testing-library/intro/
+[Testing-Library.js]: https://img.shields.io/badge/testing%20library-323330?style=for-the-badge&logo=testing-library&logoColor=red
+[Testing-Library-url]: https://testing-library.com/docs/react-testing-library/intro/
