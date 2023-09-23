@@ -14,7 +14,7 @@ export default function Component() {
 }
 
 describe('Table test', () => {
-  test('Should launch dialog when reset', async () => {
+  test('Should active when click', async () => {
     const user = userEvent.setup()
     render(<Component />)
 
