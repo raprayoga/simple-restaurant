@@ -116,7 +116,9 @@ const CashierOrderList = React.forwardRef<
                 <td className="px-6 py-4" colSpan={3}>
                   Total
                 </td>
-                <td className="px-6 py-4">{totalPrice}</td>
+                <td className="px-6 py-4">
+                  {'Rp ' + new Intl.NumberFormat('id-ID').format(totalPrice)}
+                </td>
               </tr>
             )}
           </tbody>
